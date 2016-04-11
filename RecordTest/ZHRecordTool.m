@@ -228,10 +228,14 @@ static ZHRecordTool *instance;
 
 #pragma mark - AVAudioRecorderDelegate
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
-
     if (flag)
     { //取消激活session，其他音频可播放
-        [self.session setActive:NO error:nil];
+        [self.session setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [self.session setActive:YES error:nil];
+
+        //时间到了会调用此方法
+        [self.progressHUD hide:YES];
+        self.progressHUD = nil;
     }
 }
 
