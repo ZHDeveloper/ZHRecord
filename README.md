@@ -1,6 +1,7 @@
 # ZHRecord
 仿微信录音
 
+##一、API介绍
 ####最短的录音时间
 	@property (nonatomic, assign) CGFloat minRecordTime;
 
@@ -42,7 +43,7 @@
 
 	- (void)stopUpdateVolumeMeters;
 	
-##效果预览
+##二、效果预览
 ![效果图](https://github.com/ZHDeveloper/ZHRecord/blob/master/Untitled.gif)
 
 
