@@ -31,7 +31,6 @@ static ZHRecordTool *instance;
 @property (nonatomic, strong) UIImageView *voliceView;
 @property (nonatomic, strong) UILabel *titleLabel;
 
-
 @end
 
 @implementation ZHRecordTool
@@ -80,28 +79,57 @@ static ZHRecordTool *instance;
     //显示指示器的view
     [self.progressHUD show:YES];
 
-    //实时刷新音量
-    [self performSelector:@selector(updateVolumeMeters) withObject:nil];
+    //开始刷新音量
+    [self startUpdateVolumeMeters];
 }
 
-- (void)stopRecord {
+- (BOOL)stopRecord {
+    //判断录音时间是否正确
+    BOOL isValidateRecord = [self isValidateRecord];
+
     [self.recorder stop];
 
-    self.isValidateRecord = [self isValidateRecord];
     //重置recorder
     self.recorder = nil;
 
     //取消延迟执行刷新音量
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(updateVolumeMeters) object:nil];
+    [self stopUpdateVolumeMeters];
 
-    //隐藏指示的view
-    [self.progressHUD hide:YES];
-    self.progressHUD = nil;
+    return isValidateRecord;
 }
 
-//判断录音时间是否合法
+- (void)cancelRecord {
+    //停止录音
+    [self stopRecord];
+
+    //删除当前录音文件
+    [self removeFileAtPath:self.recordFilePath];
+}
+
+- (void)removeFileAtPath:(NSString *)path {
+    NSFileManager *manage = [NSFileManager defaultManager];
+    [manage removeItemAtPath:path error:nil];
+}
+
 - (BOOL)isValidateRecord {
-    return (self.minRecordTime < self.recorder.currentTime) && (self.recorder.currentTime < self.maxRecordTime);
+    //判断录音时间是否合法
+    BOOL isValidateRecord = (self.minRecordTime < self.recorder.currentTime) && (self.recorder.currentTime < self.maxRecordTime);
+
+    if (!isValidateRecord)
+    { //删除录音文件
+        [self.recorder deleteRecording];
+        [self updateHUDTitle:@"录音时间太短"];
+        [self updateHUDImageView:@"ZHRecor.bundle/record_shorttime.png"];
+        [self.progressHUD hide:YES afterDelay:0.5];
+        self.progressHUD = nil;
+    }
+    else
+    {
+        [self.progressHUD hide:YES];
+        self.progressHUD = nil;
+    }
+
+    return isValidateRecord;
 }
 
 - (void)playRecord {
@@ -134,6 +162,16 @@ static ZHRecordTool *instance;
     [self.player stop];
 }
 
+//开始更新音量
+- (void)startUpdateVolumeMeters {
+    [self performSelector:@selector(updateVolumeMeters) withObject:nil];
+}
+
+//停止刷新音量
+- (void)stopUpdateVolumeMeters {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(updateVolumeMeters) object:nil];
+}
+
 //检测音量
 - (void)updateVolumeMeters {
     //更新音量
@@ -141,50 +179,56 @@ static ZHRecordTool *instance;
 
     float lowPassResults = pow(10, (0.05 * [_recorder peakPowerForChannel:0]));
 
+    NSLog(@"%lf", lowPassResults);
+
     if (0.0 <= lowPassResults && lowPassResults <= 0.14)
     {
-        [self updateVoliceImageView:@"ZHRecor.bundle/record_animate_1.png"];
+        [self updateHUDImageView:@"ZHRecor.bundle/record_animate_1.png"];
     }
     else if (0.14 < lowPassResults && lowPassResults <= 0.28)
     {
-        [self updateVoliceImageView:@"ZHRecor.bundle/record_animate_2.png"];
+        [self updateHUDImageView:@"ZHRecor.bundle/record_animate_2.png"];
     }
     else if (0.28 < lowPassResults && lowPassResults <= 0.42)
     {
-        [self updateVoliceImageView:@"ZHRecor.bundle/record_animate_3.png"];
+        [self updateHUDImageView:@"ZHRecor.bundle/record_animate_3.png"];
     }
     else if (0.42 < lowPassResults && lowPassResults <= 0.56)
     {
-        [self updateVoliceImageView:@"ZHRecor.bundle/record_animate_4.png"];
+        [self updateHUDImageView:@"ZHRecor.bundle/record_animate_4.png"];
     }
     else if (0.56 < lowPassResults && lowPassResults <= 0.7)
     {
-        [self updateVoliceImageView:@"ZHRecor.bundle/record_animate_5.png"];
+        [self updateHUDImageView:@"ZHRecor.bundle/record_animate_5.png"];
     }
     else if (0.7 < lowPassResults && lowPassResults <= 0.84)
     {
-        [self updateVoliceImageView:@"ZHRecor.bundle/record_animate_6.png"];
+        [self updateHUDImageView:@"ZHRecor.bundle/record_animate_6.png"];
     }
     else if (0.84 < lowPassResults && lowPassResults <= 0.98)
     {
-        [self updateVoliceImageView:@"ZHRecor.bundle/record_animate_7.png"];
+        [self updateHUDImageView:@"ZHRecor.bundle/record_animate_7.png"];
     }
     else
     {
-        [self updateVoliceImageView:@"ZHRecor.bundle/record_animate_8.png"];
+        [self updateHUDImageView:@"ZHRecor.bundle/record_animate_8.png"];
     }
 
     //0.5秒刷新一次
     [self performSelector:@selector(updateVolumeMeters) withObject:nil afterDelay:0.25];
 }
 
-- (void)updateVoliceImageView:(NSString *)imageName {
+- (void)updateHUDImageView:(NSString *)imageName {
     self.voliceView.image = [UIImage imageNamed:imageName];
 }
 
+- (void)updateHUDTitle:(NSString *)title {
+    self.titleLabel.text = title;
+}
 
 #pragma mark - AVAudioRecorderDelegate
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
+
     if (flag)
     { //取消激活session，其他音频可播放
         [self.session setActive:NO error:nil];
@@ -229,6 +273,10 @@ static ZHRecordTool *instance;
         _recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:filePath] settings:setting error:&error];
         //准备录音
         [_recorder prepareToRecord];
+
+        NSLog(@"最长录音时间--%lf", self.maxRecordTime);
+        //最长录音时间
+        [_recorder recordForDuration:self.maxRecordTime];
 
         _recorder.delegate = self;
         //开启音量的检测

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5338B7C21CBB78950035823F /* ZHRecordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5338B7C11CBB78950035823F /* ZHRecordButton.m */; };
 		538924131CB75B8000BBE83C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 538924121CB75B8000BBE83C /* main.m */; };
 		538924161CB75B8000BBE83C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 538924151CB75B8000BBE83C /* AppDelegate.m */; };
 		538924191CB75B8000BBE83C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538924181CB75B8000BBE83C /* ViewController.m */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5338B7C01CBB78950035823F /* ZHRecordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRecordButton.h; sourceTree = "<group>"; };
+		5338B7C11CBB78950035823F /* ZHRecordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHRecordButton.m; sourceTree = "<group>"; };
 		5389240E1CB75B8000BBE83C /* RecordTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecordTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538924121CB75B8000BBE83C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		538924141CB75B8000BBE83C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				538924181CB75B8000BBE83C /* ViewController.m */,
 				538924441CB75BA400BBE83C /* ZHRecordTool.h */,
 				538924451CB75BA400BBE83C /* ZHRecordTool.m */,
+				5338B7C01CBB78950035823F /* ZHRecordButton.h */,
+				5338B7C11CBB78950035823F /* ZHRecordButton.m */,
 				5389241A1CB75B8000BBE83C /* Main.storyboard */,
 				5389241D1CB75B8000BBE83C /* Assets.xcassets */,
 				5389241F1CB75B8000BBE83C /* LaunchScreen.storyboard */,
@@ -297,6 +302,7 @@
 				538924191CB75B8000BBE83C /* ViewController.m in Sources */,
 				5389244B1CB79BBC00BBE83C /* MBProgressHUD.m in Sources */,
 				538924161CB75B8000BBE83C /* AppDelegate.m in Sources */,
+				5338B7C21CBB78950035823F /* ZHRecordButton.m in Sources */,
 				538924131CB75B8000BBE83C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,6 +529,7 @@
 				5389243D1CB75B8000BBE83C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5389243E1CB75B8000BBE83C /* Build configuration list for PBXNativeTarget "RecordTestTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +538,7 @@
 				538924401CB75B8000BBE83C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		538924411CB75B8000BBE83C /* Build configuration list for PBXNativeTarget "RecordTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +547,7 @@
 				538924431CB75B8000BBE83C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

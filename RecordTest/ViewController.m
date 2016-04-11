@@ -7,15 +7,15 @@
 //
 
 #import "ViewController.h"
-#import "ZHRecordTool.h"
+#import "ZHRecordButton.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
-
-@property (nonatomic, strong) ZHRecordTool *recoreTool;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
+
+@property (weak, nonatomic) IBOutlet ZHRecordButton *recordButton;
 
 @end
 
@@ -27,10 +27,17 @@
     self.tableView.tableFooterView = [UIView new];
 
     self.dataSource = [NSMutableArray array];
-}
 
-- (void)viewDidAppear:(BOOL)animated {
-    self.recoreTool = [ZHRecordTool shareZHRecordTool];
+    __weak typeof(self) this         = self;
+    self.recordButton.recordComplete = ^(ZHRecordStatus status, NSString *recordPath) {
+
+        if (status == ZHRecordStatusComplete && recordPath)
+        {
+            [this.dataSource addObject:[recordPath lastPathComponent]];
+            [this.tableView reloadData];
+        }
+
+    };
 }
 
 #pragma mark - Delegate
@@ -62,24 +69,10 @@
 
     NSString *filePath = [cachePath stringByAppendingPathComponent:fileName];
 
-    [self.recoreTool playAudioWith:filePath];
+    [[ZHRecordTool shareZHRecordTool] playAudioWith:filePath];
 }
 
 #pragma mark - Action
 
-
-- (IBAction)dragDown:(id)sender {
-    [self.recoreTool startRecord];
-}
-
-- (IBAction)dragExit:(id)sender {
-    [self.recoreTool stopRecord];
-
-    [self.dataSource addObject:[self.recoreTool.recordFilePath lastPathComponent]];
-
-    NSLog(@"%@", self.dataSource);
-
-    [self.tableView reloadData];
-}
 
 @end
