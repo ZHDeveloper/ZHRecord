@@ -36,7 +36,7 @@
     //设置最小录音时间
     self.recordTool.minRecordTime = 1;
     //最大录音时间
-    self.recordTool.maxRecordTime = 10;
+    self.recordTool.maxRecordTime = 120;
 
     //按下按钮
     [self addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchDown];
@@ -56,7 +56,7 @@
 - (void)touchDown:(UIButton *)button {
     //开始录音
     [self.recordTool startRecord];
-    
+
     [self.recordTool updateHUDTitle:@"手指上滑,取消发送!"];
 
     if (self.recordComplete)
