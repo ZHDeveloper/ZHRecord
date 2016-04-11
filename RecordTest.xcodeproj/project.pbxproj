@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5338B7C21CBB78950035823F /* ZHRecordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5338B7C11CBB78950035823F /* ZHRecordButton.m */; };
+		536CE5821CBB9EF700AE2BE3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 536CE57C1CBB9EF700AE2BE3 /* MBProgressHUD.m */; };
+		536CE5831CBB9EF700AE2BE3 /* ZHRecor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 536CE57D1CBB9EF700AE2BE3 /* ZHRecor.bundle */; };
+		536CE5841CBB9EF700AE2BE3 /* ZHRecordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 536CE57F1CBB9EF700AE2BE3 /* ZHRecordButton.m */; };
+		536CE5851CBB9EF700AE2BE3 /* ZHRecordTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 536CE5811CBB9EF700AE2BE3 /* ZHRecordTool.m */; };
 		538924131CB75B8000BBE83C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 538924121CB75B8000BBE83C /* main.m */; };
 		538924161CB75B8000BBE83C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 538924151CB75B8000BBE83C /* AppDelegate.m */; };
 		538924191CB75B8000BBE83C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538924181CB75B8000BBE83C /* ViewController.m */; };
@@ -16,9 +19,6 @@
 		538924211CB75B8000BBE83C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5389241F1CB75B8000BBE83C /* LaunchScreen.storyboard */; };
 		5389242C1CB75B8000BBE83C /* RecordTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5389242B1CB75B8000BBE83C /* RecordTestTests.m */; };
 		538924371CB75B8000BBE83C /* RecordTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 538924361CB75B8000BBE83C /* RecordTestUITests.m */; };
-		538924461CB75BA400BBE83C /* ZHRecordTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 538924451CB75BA400BBE83C /* ZHRecordTool.m */; };
-		5389244B1CB79BBC00BBE83C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5389244A1CB79BBC00BBE83C /* MBProgressHUD.m */; };
-		5389244F1CB79C2700BBE83C /* ZHRecor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5389244E1CB79C2700BBE83C /* ZHRecor.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5338B7C01CBB78950035823F /* ZHRecordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRecordButton.h; sourceTree = "<group>"; };
-		5338B7C11CBB78950035823F /* ZHRecordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHRecordButton.m; sourceTree = "<group>"; };
+		536CE57B1CBB9EF700AE2BE3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		536CE57C1CBB9EF700AE2BE3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		536CE57D1CBB9EF700AE2BE3 /* ZHRecor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZHRecor.bundle; sourceTree = "<group>"; };
+		536CE57E1CBB9EF700AE2BE3 /* ZHRecordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRecordButton.h; sourceTree = "<group>"; };
+		536CE57F1CBB9EF700AE2BE3 /* ZHRecordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHRecordButton.m; sourceTree = "<group>"; };
+		536CE5801CBB9EF700AE2BE3 /* ZHRecordTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRecordTool.h; sourceTree = "<group>"; };
+		536CE5811CBB9EF700AE2BE3 /* ZHRecordTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHRecordTool.m; sourceTree = "<group>"; };
 		5389240E1CB75B8000BBE83C /* RecordTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecordTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538924121CB75B8000BBE83C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		538924141CB75B8000BBE83C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,11 +62,6 @@
 		538924321CB75B8000BBE83C /* RecordTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecordTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		538924361CB75B8000BBE83C /* RecordTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTestUITests.m; sourceTree = "<group>"; };
 		538924381CB75B8000BBE83C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		538924441CB75BA400BBE83C /* ZHRecordTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRecordTool.h; sourceTree = "<group>"; };
-		538924451CB75BA400BBE83C /* ZHRecordTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHRecordTool.m; sourceTree = "<group>"; };
-		538924491CB79BBC00BBE83C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		5389244A1CB79BBC00BBE83C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		5389244E1CB79C2700BBE83C /* ZHRecor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZHRecor.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +89,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		536CE5791CBB9EF700AE2BE3 /* ZHRecord */ = {
+			isa = PBXGroup;
+			children = (
+				536CE57A1CBB9EF700AE2BE3 /* MBProgressHUD */,
+				536CE57D1CBB9EF700AE2BE3 /* ZHRecor.bundle */,
+				536CE57E1CBB9EF700AE2BE3 /* ZHRecordButton.h */,
+				536CE57F1CBB9EF700AE2BE3 /* ZHRecordButton.m */,
+				536CE5801CBB9EF700AE2BE3 /* ZHRecordTool.h */,
+				536CE5811CBB9EF700AE2BE3 /* ZHRecordTool.m */,
+			);
+			path = ZHRecord;
+			sourceTree = "<group>";
+		};
+		536CE57A1CBB9EF700AE2BE3 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				536CE57B1CBB9EF700AE2BE3 /* MBProgressHUD.h */,
+				536CE57C1CBB9EF700AE2BE3 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		538924051CB75B8000BBE83C = {
 			isa = PBXGroup;
 			children = (
@@ -112,16 +134,11 @@
 		538924101CB75B8000BBE83C /* RecordTest */ = {
 			isa = PBXGroup;
 			children = (
-				538924481CB79BBC00BBE83C /* MBProgressHUD */,
+				536CE5791CBB9EF700AE2BE3 /* ZHRecord */,
 				538924141CB75B8000BBE83C /* AppDelegate.h */,
 				538924151CB75B8000BBE83C /* AppDelegate.m */,
-				5389244E1CB79C2700BBE83C /* ZHRecor.bundle */,
 				538924171CB75B8000BBE83C /* ViewController.h */,
 				538924181CB75B8000BBE83C /* ViewController.m */,
-				538924441CB75BA400BBE83C /* ZHRecordTool.h */,
-				538924451CB75BA400BBE83C /* ZHRecordTool.m */,
-				5338B7C01CBB78950035823F /* ZHRecordButton.h */,
-				5338B7C11CBB78950035823F /* ZHRecordButton.m */,
 				5389241A1CB75B8000BBE83C /* Main.storyboard */,
 				5389241D1CB75B8000BBE83C /* Assets.xcassets */,
 				5389241F1CB75B8000BBE83C /* LaunchScreen.storyboard */,
@@ -155,15 +172,6 @@
 				538924381CB75B8000BBE83C /* Info.plist */,
 			);
 			path = RecordTestUITests;
-			sourceTree = "<group>";
-		};
-		538924481CB79BBC00BBE83C /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				538924491CB79BBC00BBE83C /* MBProgressHUD.h */,
-				5389244A1CB79BBC00BBE83C /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +281,7 @@
 				538924211CB75B8000BBE83C /* LaunchScreen.storyboard in Resources */,
 				5389241E1CB75B8000BBE83C /* Assets.xcassets in Resources */,
 				5389241C1CB75B8000BBE83C /* Main.storyboard in Resources */,
-				5389244F1CB79C2700BBE83C /* ZHRecor.bundle in Resources */,
+				536CE5831CBB9EF700AE2BE3 /* ZHRecor.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,12 +306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				538924461CB75BA400BBE83C /* ZHRecordTool.m in Sources */,
 				538924191CB75B8000BBE83C /* ViewController.m in Sources */,
-				5389244B1CB79BBC00BBE83C /* MBProgressHUD.m in Sources */,
+				536CE5841CBB9EF700AE2BE3 /* ZHRecordButton.m in Sources */,
+				536CE5851CBB9EF700AE2BE3 /* ZHRecordTool.m in Sources */,
 				538924161CB75B8000BBE83C /* AppDelegate.m in Sources */,
-				5338B7C21CBB78950035823F /* ZHRecordButton.m in Sources */,
 				538924131CB75B8000BBE83C /* main.m in Sources */,
+				536CE5821CBB9EF700AE2BE3 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
