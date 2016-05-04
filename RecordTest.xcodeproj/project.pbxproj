@@ -453,9 +453,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RecordTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.swwy.mycs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.honggen.swwy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "93bea7f9-40bb-4c80-bf60-3a80ec1bd17d";
+				PROVISIONING_PROFILE = "41137ef0-069d-435b-87f2-dc23f497af01";
 			};
 			name = Debug;
 		};
@@ -466,9 +466,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RecordTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.swwy.mycs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.honggen.swwy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "93bea7f9-40bb-4c80-bf60-3a80ec1bd17d";
+				PROVISIONING_PROFILE = "41137ef0-069d-435b-87f2-dc23f497af01";
 			};
 			name = Release;
 		};
